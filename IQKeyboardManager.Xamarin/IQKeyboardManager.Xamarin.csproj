@@ -4,15 +4,16 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0-ios</TargetFramework>
-		<OutputType>Library</OutputType>
 		<AssemblyName>Hackiftekhar.IQKeyboardManager.Xamarin</AssemblyName>
-		<ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-		<ProjectGuid>{19A155D8-EC5D-4A04-9CA6-F355F8F1A291}</ProjectGuid>
-		<TemplateGuid>{b6f3ff35-79b2-4f25-a2fc-60a7cf61013b}</TemplateGuid>
 		<RootNamespace>Hackiftekhar.IQKeyboardManager.Xamarin</RootNamespace>
-		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<LangVersion>8</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>true</ImplicitUsings>
+        <IsBindingProject>true</IsBindingProject>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<Deterministic>False</Deterministic>
+		<DebugType>Embedded</DebugType>
+    	<EmbedAllSources>True</EmbedAllSources>
 	</PropertyGroup>
 
 
@@ -21,13 +22,15 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+    <ItemGroup>
+  <Compile Include="libIQKeyboardManager.linkwith.cs">
+			<DependentUpon>libIQKeyboardManager.a</DependentUpon>
+		</Compile>
   </ItemGroup>
   <ItemGroup>
     <NativeReference Include="libIQKeyboardManager.a">
@@ -35,14 +38,31 @@
       <SmartLink>True</SmartLink>
     </NativeReference>
   </ItemGroup>
+
   <ItemGroup>
-    <BundleResource Include="Resources\IQButtonBarArrowDown%402x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowDown%403x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowLeft%402x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowLeft%403x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowRight%402x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowRight%403x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowUp%402x.png" />
-    <BundleResource Include="Resources\IQButtonBarArrowUp%403x.png" />
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowRight%402x.png">
+      <Link>Resources\IQButtonBarArrowRight%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowUp%403x.png">
+      <Link>Resources\IQButtonBarArrowUp%403x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowUp%402x.png">
+      <Link>Resources\IQButtonBarArrowUp%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowRight%403x.png">
+      <Link>Resources\IQButtonBarArrowRight%403x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowLeft%403x.png">
+      <Link>Resources\IQButtonBarArrowLeft%403x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowDown%403x.png">
+      <Link>Resources\IQButtonBarArrowDown%403x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowDown%402x.png">
+      <Link>Resources\IQButtonBarArrowDown%402x.png</Link>
+    </BundleResource>
+    <BundleResource Condition="'$(_ResourcePrefix)' != ''" Update="Resources\IQButtonBarArrowLeft%402x.png">
+      <Link>Resources\IQButtonBarArrowLeft%402x.png</Link>
+    </BundleResource>
   </ItemGroup>
 </Project>
